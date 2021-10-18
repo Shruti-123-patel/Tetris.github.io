@@ -20,6 +20,8 @@ $(document).ready(function () {
     //score
     let score = 0;
     let score_live = document.getElementById("score");
+    let highest_score=score;
+    $('#high_score').text(highest_score);
 
     //speed control
     let changeSp = document.getElementById("change_speed");
@@ -30,7 +32,7 @@ $(document).ready(function () {
         speed = document.getElementById("speed").value;
         speed_num.text(`${speed}x`);
     });
-    $('#score').text(`${score}`);
+    $('#score').text(score);
 
 
     //game over part
@@ -266,6 +268,11 @@ $(document).ready(function () {
                 }
                 music.play();
                 score += 10;
+                if(highest_score<score)
+                {
+                    highest_score=score;
+                    $('#high_score').text(highest_score);
+                }
                 $('#score').text(`${score}`);
             }
             for (j = 0; j < COLS; j++) {
@@ -304,7 +311,7 @@ $(document).ready(function () {
                 drop();
                 score = 0;
                 speed_num.text(`${speed}x`);
-                $('#score').text(score);
+                $('#score1').text(score);
             }
             );
             exit.click(function () {
