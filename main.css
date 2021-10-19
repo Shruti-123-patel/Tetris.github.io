@@ -5,7 +5,10 @@
 }
 body
 {
-    background-image: url('image/bg.png');
+    background-image: url('image/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: rgb(144, 30, 236); */
 }
 #canvas
 {
@@ -34,7 +37,9 @@ body
     margin-top: 2%;
     border-radius: 10px;
     padding:20px;
+    
 }
+
 #play_again,#close
 {
     font-size: large;

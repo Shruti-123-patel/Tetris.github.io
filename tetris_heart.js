@@ -6,6 +6,27 @@ $(document).ready(function () {
     const SQ = 25;     //length of each square
     const WHITE = "rgb(12,12,41)";
 
+    //volume get or not button
+    // console.log(playVol);
+    let volStop = $('#volStop');
+    volStop.hide();
+    let volStart = $('#volStart');
+    var playVol=true;
+
+    //stop the music
+    volStart.click(function () {
+        playVol = false;
+        volStart.hide();
+        volStop.show();
+    });
+
+    //start the music
+    volStop.click(function () {
+        playVol = true;
+        volStart.show();
+        volStop.hide();
+    });
+
     //voice
     let music = document.getElementById("sound");
     let key_press = document.getElementById("key");
@@ -20,7 +41,7 @@ $(document).ready(function () {
     //score
     let score = 0;
     let score_live = document.getElementById("score");
-    let highest_score=score;
+    let highest_score = score;
     $('#high_score').text(highest_score);
 
     //speed control
@@ -251,7 +272,8 @@ $(document).ready(function () {
                 if (this.activeTetromino[i][j])
                     Board[this.y + i][this.x + j] = this.color;
             }
-            key_press.play();
+            if (playVol)
+                key_press.play();
         }
 
         //if the row is full then we have to clear that row
@@ -266,11 +288,11 @@ $(document).ready(function () {
                         Board[y][col] = Board[y - 1][col];
                     }
                 }
-                music.play();
+                if (playVol)
+                    music.play();
                 score += 10;
-                if(highest_score<score)
-                {
-                    highest_score=score;
+                if (highest_score < score) {
+                    highest_score = score;
                     $('#high_score').text(highest_score);
                 }
                 $('#score').text(`${score}`);
