@@ -8,12 +8,13 @@ body
     background-image: url('image/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
+  /* overflow: hidden; */
     /* background-color: rgb(144, 30, 236); */
 }
 #canvas
 {
     margin-top: 1%;
-    border:5px solid white;
 }
 #rotate,#down,#left,#right
 {
@@ -31,22 +32,49 @@ body
 }
 .gameover
 {
-    background-color: rgba(240, 248, 255, 0.568);
-    height:10%;
-    width:40%;
-    margin-top: 2%;
+    /* background-color: rgba(44, 45, 46, 0.5); */
+    font-size: 200px;
+    margin-top: 12%;
     border-radius: 10px;
-    padding:20px;
-    
+    /* padding:20px; */
+    color:black;
 }
 
 #play_again,#close
 {
-    font-size: large;
-    margin-top:2%;
+    font-size: xx-large;
+    padding:0.7%;
+    font-weight: bold;
+    border-radius: 5px;
+    animation-name: over;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    margin-top:-8%;
 }
+@keyframes over {
+    50% {padding:0.7%;}
+    100% {padding:0.8%;}
+  }
 #play_again
 {
-    margin-right:10%;
-    margin-left:5%;
+    margin-right:5%;
+    /* margin-left:5%; */
+}
+@media only screen and (max-width: 900px) 
+{
+    .gameover
+    {
+        /* background-color: rgba(44, 45, 46, 0.5); */
+        /* color:white; */
+        font-size: xx-large;
+    }
+    body
+    {
+        background-color: rgb(247, 247, 195);
+        background-image: none;
+    }
+    #play_again,#close
+    {
+        
+    }
 }

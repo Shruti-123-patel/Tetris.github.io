@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="main.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tetris Game</title>
+    <script src="https://kit.fontawesome.com/81ac83e5bf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <center>
+        <div class="gameover">
+            <h1
+                style="font-size: 80px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 600;">
+                Game Over!!</h1>
+            <div
+                style="font-size: 50px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 600;color:rgb(97, 95, 95);margin-top: 1.8%;">
+                Score:<span id="score" class="col"
+                    style="font-size:50px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 600;color:red;">0</span>
+            </div>
+            <button id="play_again" type="button" class="btn btn-primary">Play Again</button>
+            <button id="close" type="button" class="btn btn-danger">Exit</button>
+        </div>
+    </center>
+    <audio id="sound">
+        <source src="voices/game.wav" type="audio/wav">
+    </audio>
+    <audio id="key">
+        <source src="voices/key_press.wav" type="audio/wav">
+    </audio>
+    <div class="score row">
+        <center>
+            <div class="col-6">
+                <div
+                    style="font-size: xx-large;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 600;color:white;">
+                    <span id="score" class="col"
+                        style="font-size: xx-large;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 600;"></span>
+                    <i class="fas fa-volume-mute col" id="volStop" style="color:white;cursor:pointer;"></i>
+                    <i class="fas fa-volume-up col" id="volStart" style="color:white;cursor:pointer;"></i>
+                    <i class="fas fa-trophy"></i>
+                    <span id="high_score" class="col"
+                        style="font-size: xx-large;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 600;"></span>
+                </div>
+        </center>
+    </div>
+    </div>
+    <div class="row">
+        <center><canvas id="canvas" height="500px" width="250px"></canvas> </center>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <center><img src="image/left.jpg" id="left">
+                    <img src="image/right.jpg" id="right">
+                    <img src="image/down.jpg" id="down">
+                    <img src="image/rotate.jpg" id="rotate">
+                </center>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <center><input type="range" class="form-range" min="1" max="5" step="0.5" id="speed" value="1">
+            <h2 id="sp_num" style="color:white"></h2>
+            <br>
+            <button type="button" id="change_speed" class="btn btn-warning"
+                style="width:200px;font-size:medium;font-weight: bold;">Change
+                Speed</button>
+        </center>
+    </div>
+    <script src="vol.js"></script>
+    <script src="tetrominos_shape.js"></script>
+    <script src="tetris_heart.js"></script>
+</body>
+
+</html>
